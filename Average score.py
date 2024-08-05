@@ -3,9 +3,12 @@ students = ['Pablo Escobar', 'Grigory Rasputin', 'Yuri Kharlamov', 'Peter the Fi
 def calculate_average(grades):
     return sum(grades) / len(grades)
 averages = {}
-for i, student in enumerate(students):
-    if i < len(grades):
-        averages[student] = calculate_average(grades[i])
+sorted_students = sorted(students)
+
+for student in sorted_students:
+    if student in students:
+        index = students.index(student)
+        averages[student] = calculate_average(grades[index])
     else:
         averages[student] = 0
 print(averages)
